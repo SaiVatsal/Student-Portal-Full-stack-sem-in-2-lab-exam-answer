@@ -8,8 +8,8 @@ import { ShieldCheck, Lock, Activity } from "lucide-react";
 
 export default async function AdminAuditLogsPage() {
   const session = await getSession();
-  const adminName = session?.fullName || "Dr. K. Venkat Rao";
-  const identifier = session?.identifier || "KLU_ADMIN_01";
+  const adminName = session?.fullName || "Polimera Sai Vatsal";
+  const identifier = session?.identifier || "2500040224";
 
   const store = getDatabase();
   const logs = store.auditLogs;

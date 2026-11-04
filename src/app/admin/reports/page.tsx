@@ -27,7 +27,7 @@ export default function AdminReportsPage() {
   };
 
   return (
-    <PortalLayout role="admin" userName="Dr. K. Venkat Rao" userIdentifier="KLU_ADMIN_01">
+    <PortalLayout role="admin" userName="Polimera Sai Vatsal" userIdentifier="2500040224">
       <div className="space-y-6">
         <div>
           <h1 className="text-2xl font-bold font-display text-white">University Academic & Financial Reports</h1>

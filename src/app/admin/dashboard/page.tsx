@@ -8,8 +8,8 @@ import { Users, BookOpen, CalendarDays, Award, CreditCard, ShieldCheck, ArrowUpR
 
 export default async function AdminDashboardPage() {
   const session = await getSession();
-  const adminName = session?.fullName || "Dr. K. Venkat Rao";
-  const identifier = session?.identifier || "KLU_ADMIN_01";
+  const adminName = session?.fullName || "Polimera Sai Vatsal";
+  const identifier = session?.identifier || "2500040224";
 
   return (
     <PortalLayout role="admin" userName={adminName} userIdentifier={identifier}>

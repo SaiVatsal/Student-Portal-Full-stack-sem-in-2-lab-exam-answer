@@ -24,7 +24,7 @@ export default function AdminGradesPage() {
   };
 
   return (
-    <PortalLayout role="admin" userName="Dr. K. Venkat Rao" userIdentifier="KLU_ADMIN_01">
+    <PortalLayout role="admin" userName="Polimera Sai Vatsal" userIdentifier="2500040224">
       <div className="space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>

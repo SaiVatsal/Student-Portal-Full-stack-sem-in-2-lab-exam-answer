@@ -7,8 +7,8 @@ import { CreditCard, CheckCircle2, TrendingUp, DollarSign } from "lucide-react";
 
 export default async function AdminFeesPage() {
   const session = await getSession();
-  const adminName = session?.fullName || "Dr. K. Venkat Rao";
-  const identifier = session?.identifier || "KLU_ADMIN_01";
+  const adminName = session?.fullName || "Polimera Sai Vatsal";
+  const identifier = session?.identifier || "2500040224";
 
   const collections = [
     { head: "Tuition & Academic Fees", target: "₹ 14.8 Cr", collected: "₹ 14.5 Cr", compliance: "98.0%" },

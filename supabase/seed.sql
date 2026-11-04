@@ -17,7 +17,7 @@ VALUES
   ('e0000000-0000-0000-0000-000000000003', 'rajesh.kumar@faculty.nitroazard.edu.in', 'Dr. Rajesh Kumar', '+91 94401 56789', 'faculty', 'KLU1042', NULL, true),
   ('e0000000-0000-0000-0000-000000000004', 'priya.sundaram@faculty.nitroazard.edu.in', 'Dr. Priya Sundaram', '+91 94402 67890', 'faculty', 'KLU1088', NULL, true),
   ('e0000000-0000-0000-0000-000000000005', 'admin.academics@nitroazard.edu.in', 'Dr. K. Venkat Rao', '+91 94400 00001', 'admin', 'KLU_ADMIN_01', NULL, true),
-  ('e0000000-0000-0000-0000-000000000224', '2500040224@nitroazard.edu.in', 'Super Administrator', '+91 99999 00224', 'admin', '2500040224', NULL, false),
+  ('e0000000-0000-0000-0000-000000000224', '2500040224@nitroazard.edu.in', 'Polimera Sai Vatsal', '+91 99999 00224', 'admin', '2500040224', NULL, false),
   ('e0000000-0000-0000-0000-000000000006', 'suresh.verma@parents.nitroazard.edu.in', 'Suresh Verma', '+91 98480 99999', 'parent', 'PARENT_2500040001', 'e0000000-0000-0000-0000-000000000001', false)
 ON CONFLICT (id) DO NOTHING;
 

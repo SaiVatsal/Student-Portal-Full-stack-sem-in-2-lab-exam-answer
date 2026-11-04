@@ -164,7 +164,7 @@ function initializeSeedData(store: DatabaseStore) {
     {
       id: "e0000000-0000-0000-0000-000000000224",
       email: "2500040224@nitroazard.edu.in",
-      fullName: "Super Administrator (2500040224)",
+      fullName: "Polimera Sai Vatsal",
       phone: "+91 99999 00224",
       role: "admin",
       identifier: "2500040224",

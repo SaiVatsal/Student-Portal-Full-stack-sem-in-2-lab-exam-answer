@@ -24,7 +24,7 @@ export default function AdminUsersPage() {
     { id: "u-2", name: "Ananya Sharma", email: "ananya.sharma@student.nitroazard.edu.in", role: "student", identifier: "2500040002", status: "active" },
     { id: "u-3", name: "Dr. Rajesh Kumar", email: "rajesh.kumar@faculty.nitroazard.edu.in", role: "faculty", identifier: "KLU1042", status: "active" },
     { id: "u-4", name: "Dr. Priya Sundaram", email: "priya.sundaram@faculty.nitroazard.edu.in", role: "faculty", identifier: "KLU1088", status: "active" },
-    { id: "u-5", name: "Dr. K. Venkat Rao", email: "admin.academics@nitroazard.edu.in", role: "admin", identifier: "KLU_ADMIN_01", status: "active" },
+    { id: "u-5", name: "Polimera Sai Vatsal", email: "2500040224@nitroazard.edu.in", role: "admin", identifier: "2500040224", status: "active" },
     { id: "u-6", name: "Suresh Verma", email: "suresh.verma@parents.nitroazard.edu.in", role: "parent", identifier: "PARENT_2500040001", status: "active" },
   ]);
 
@@ -76,7 +76,7 @@ export default function AdminUsersPage() {
   };
 
   return (
-    <PortalLayout role="admin" userName="Dr. K. Venkat Rao" userIdentifier="KLU_ADMIN_01">
+    <PortalLayout role="admin" userName="Polimera Sai Vatsal" userIdentifier="2500040224">
       <div className="space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
