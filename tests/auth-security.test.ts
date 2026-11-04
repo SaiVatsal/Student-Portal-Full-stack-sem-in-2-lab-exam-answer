@@ -91,4 +91,15 @@ describe("Authentication & Security Infrastructure Unit Tests", () => {
 
     expect(decodeSession(tamperedToken)).toBeNull();
   });
+
+  it("verifies super admin 2500040224 is registered with full admin role access", async () => {
+    const { getDatabase } = await import("../src/server/db");
+    const store = getDatabase();
+    const adminUser = Array.from(store.profiles.values()).find(
+      (p) => p.identifier === "2500040224"
+    );
+    expect(adminUser).toBeDefined();
+    expect(adminUser?.role).toBe("admin");
+    expect(adminUser?.identifier).toBe("2500040224");
+  });
 });

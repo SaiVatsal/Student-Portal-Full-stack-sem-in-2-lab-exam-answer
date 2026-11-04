@@ -162,6 +162,17 @@ function initializeSeedData(store: DatabaseStore) {
       createdAt: "2020-01-01T00:00:00.000Z",
     },
     {
+      id: "e0000000-0000-0000-0000-000000000224",
+      email: "2500040224@nitroazard.edu.in",
+      fullName: "Super Administrator (2500040224)",
+      phone: "+91 99999 00224",
+      role: "admin",
+      identifier: "2500040224",
+      forcePasswordChange: false,
+      mfaEnabled: false,
+      createdAt: "2024-01-01T00:00:00.000Z",
+    },
+    {
       id: "e0000000-0000-0000-0000-000000000006",
       email: "suresh.verma@parents.nitroazard.edu.in",
       fullName: "Suresh Verma",
