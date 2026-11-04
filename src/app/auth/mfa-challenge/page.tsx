@@ -5,7 +5,7 @@ import { verifyMfaAction } from "@/server/actions/auth";
 import { Logo } from "@/components/ui/logo";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { ShieldAlert, KeyRound, AlertCircle } from "lucide-react";
+import { ShieldAlert, KeyRound, AlertCircle, HelpCircle } from "lucide-react";
 
 export default function MFAChallengePage() {
   const [token, setToken] = useState("");
@@ -40,10 +40,10 @@ export default function MFAChallengePage() {
         </div>
         <h1 className="text-xl font-bold font-display tracking-tight text-white flex items-center justify-center gap-2">
           <ShieldAlert className="w-5 h-5 text-azure-400" />
-          Two-Factor Authentication Required
+          Two-Factor Authentication
         </h1>
         <p className="mt-1 text-xs text-text-muted">
-          Mandatory security verification for Faculty and Administrative staff
+          Enter the verification code from your authenticator application
         </p>
       </div>
 
@@ -60,7 +60,7 @@ export default function MFAChallengePage() {
             <div>
               <Input
                 label="6-Digit Authenticator Code or Backup Key"
-                placeholder="e.g. 123456"
+                placeholder="000 000"
                 value={token}
                 onChange={(e) => setToken(e.target.value)}
                 required
@@ -70,14 +70,14 @@ export default function MFAChallengePage() {
               />
             </div>
 
-            <Button type="submit" variant="primary" className="w-full" isLoading={loading}>
+            <Button type="submit" variant="primary" className="w-full font-semibold" isLoading={loading}>
               Verify & Complete Sign In
             </Button>
           </form>
 
-          <div className="mt-5 p-3 rounded-lg bg-surface-subtle border border-surface-border text-center">
-            <p className="text-xs text-text-secondary">
-              Reviewer Quick Token: <span className="font-mono text-azure-400 font-bold">123456</span>
+          <div className="mt-6 pt-5 border-t border-surface-border/60 text-center text-[11px] text-text-muted">
+            <p>
+              Lost access to your authenticator device? Use one of your 8-digit emergency recovery codes or contact your system administrator.
             </p>
           </div>
         </div>
