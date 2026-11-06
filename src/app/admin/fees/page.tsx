@@ -4,7 +4,6 @@ import { PortalLayout } from "@/components/layout/portal-layout";
 import { Card, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { CreditCard, CheckCircle2, TrendingUp, DollarSign } from "lucide-react";
-
 export default async function AdminFeesPage() {
   const session = await getSession();
   const adminName = session?.fullName || "Polimera Sai Vatsal";
@@ -50,7 +49,7 @@ export default async function AdminFeesPage() {
             <table className="w-full text-left text-xs">
               <thead className="bg-surface-subtle border-y border-surface-border text-text-secondary uppercase tracking-wider font-mono">
                 <tr>
-                  <th className="py-3 px-4">Program & Batch</th>
+                  <th className="py-3 px-4">Program & Batch No</th>
                   <th className="py-3 px-4 text-center">Semester</th>
                   <th className="py-3 px-4 text-center">Tuition Fee</th>
                   <th className="py-3 px-4 text-center">Special Amenities</th>
@@ -63,16 +62,16 @@ export default async function AdminFeesPage() {
                   <td className="py-3.5 px-4 font-bold text-foreground">B.Tech Computer Science & Engineering (Batch 2022-26)</td>
                   <td className="py-3.5 px-4 text-center font-mono">Sem 6</td>
                   <td className="py-3.5 px-4 text-center font-tabular font-semibold">₹ 1,25,000</td>
-                  <td className="py-3.5 px-4 text-center font-tabular">₹ 15,000</td>
-                  <td className="py-3.5 px-4 text-center font-tabular">₹ 4,500</td>
+                  <td className="py-3.5 px-4 text-center font-tabular">₹ 1,50,000</td>
+                  <td className="py-3.5 px-4 text-center font-tabular">₹ 45,000</td>
                   <td className="py-3.5 px-4 text-center font-tabular font-bold text-azure-400 text-sm">₹ 1,44,500</td>
                 </tr>
                 <tr className="hover:bg-surface-raised/50">
                   <td className="py-3.5 px-4 font-bold text-foreground">B.Tech Electronics & Communication (Batch 2022-26)</td>
                   <td className="py-3.5 px-4 text-center font-mono">Sem 6</td>
                   <td className="py-3.5 px-4 text-center font-tabular font-semibold">₹ 1,15,000</td>
-                  <td className="py-3.5 px-4 text-center font-tabular">₹ 15,000</td>
-                  <td className="py-3.5 px-4 text-center font-tabular">₹ 4,500</td>
+                  <td className="py-3.5 px-4 text-center font-tabular">₹ 1,500</td>
+                  <td className="py-3.5 px-4 text-center font-tabular">₹ 45,00</td>
                   <td className="py-3.5 px-4 text-center font-tabular font-bold text-azure-400 text-sm">₹ 1,34,500</td>
                 </tr>
               </tbody>

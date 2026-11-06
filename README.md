@@ -1,93 +1,73 @@
-# Nitro Azard • University Academic ERP Portal
+## Features & Overview
+Credit Based Academic System
 
-> **Production-grade academic ERP system for deemed universities**, modeled on the workflows, vocabulary, and regulations of KL University ERP (KLU ERP) with modern design and speed.
+Academic Programmes are divided into Departments, Batches, Semesters, Sections and Courses. All follow the Indian standard L-T-P-S-C system.
+Assessment Based
+In Semester assessments are split into 60% Continuous Evaluation (20% Mid-1, 20% Mid-2, 10% Continuous Assignments, 10% Lab Implementation). End Seminars are worth 40%. The SGPA/CGPA are calculated using a 10-point scale.
+Attendance & Hall Ticket Check
+Automatic 75% attendance check. Hall tickets can only be issued if Fee Dues are 0, and attendance is at least 75% (or condoned).
+User-Role Based
+Students
+View real-time attendance summary. Calculate how many classes can be missed. View exams, download hall ticket. View In Semester grades. View End Semester grading sheet. View Fee receipts. Register for courses. View library loans. View Hostel and Transport details. Submit Leave/OD request. Raise Grievance tickets.
+Staff
+Keyboard input attendance with 24 hour editing period. Enter In Semester grades. Lock grades. View students. Distribute study material. Approve Leave/OD. View Course Outcome (CO) achievement.
+Admin
+Manage students & staff. Bulk upload CSV list of students with error messages per row. Schedule non-clashing Timetable. Process & lock End Semester results. Manage Fee structure and reconcile with Razorpay. View Circulars. View read-only audit logs.
+Parent
+View limited read-only information regarding their child's attendance, exam grades, Fee dues, and timetable.
+Global Search (Ctrl + K)
+Quick search for courses, circulars, fees and more.
 
----
+## Security
 
-## Key Features & Academic Architecture
+Next.js Edge Middleware Route Guards & PostgreSQL Row Level Security (RLS) on all tables.
+Use Student ID or Email to login. Staff/Admin must use 2-Factor Authentication using TOTP (RFC 6238). These users have a recovery key.
+Encrypted httpOnly cookies with SameSite=Lax. Session times out after 30 mins of inactivity or 12 hours. All sensitive actions require re-authentication.
+Brute force protection. If an IP or account tries to login 5 times in a row they are locked out. Generic error messages.
+OWASP Top 10 Security. Strict Content Security Policy (CSP), HSTS, X-Frame-Options DENY, CSRF, and Audit Logs (Append Only).
+## Getting Started (Local)
 
-- **Academic Credit Hierarchy:** Programs, Departments, Batches, Semesters, Sections, and Courses configured with Indian standard **L-T-P-S-C** credit structures (Lecture, Tutorial, Practical, Skilling, Credits).
-- **Assessment Split:** 60% In-Sem Continuous Assessment (Mid-1 20%, Mid-2 20%, Continuous Assignments 10%, Lab Execution 10%) + 40% End-Sem Examination with 10-point relative SGPA/CGPA calculation.
-- **Attendance & Hall Ticket Clearance Gate:** Automated enforcement of 75% regulatory threshold. Hall ticket is released only when pending fee dues = 0 AND attendance >= 75% (or sanctioned condonation).
-- **Role-Gated Portals:**
-  - **Student:** Live attendance breakdown & shortage calculator ("can skip N classes"), exam schedule, hall ticket PDF, In-Sem marks & End-Sem grade sheets, fee receipts, course registration, library borrowing, hostel & transport details, leave/OD requests, grievance tickets.
-  - **Faculty:** Keyboard-driven session attendance marking with 24h edit window, In-Sem mark entry and publication locking, student lookup roster, study material distribution, leave & OD approvals, and Course Outcome (CO) attainment reports.
-  - **Admin:** Student & faculty user management, bulk CSV roster ingestion with row-level error reporting, clash-free timetable scheduler, End-Sem result processing and freezing, fee structures & Razorpay reconciliation, university circulars, and immutable audit logs.
-  - **Parent:** Scoped, read-only oversight of ward's attendance, examination marks, fee dues, and timetable.
-- **Universal Command Search (Ctrl+K):** Instant global search across courses, circulars, fees, and services.
-
----
-
-## Security Highlights
-
-- **Dual-Layer Authorization:** Next.js Edge Middleware route guards + PostgreSQL Row Level Security (RLS) on all tables.
-- **Authentication & MFA:** Support for Student ID or institutional email login; mandatory RFC 6238 TOTP two-factor authentication for Faculty & Admin with backup recovery keys.
-- **Session Protection:** Encrypted httpOnly, SameSite=Lax cookie sessions with idle (30m) and absolute (12h) timeouts; re-authentication freshness checks for sensitive operations.
-- **Rate Limiting:** IP and account brute-force lockout after 5 consecutive failures with generic error responses to prevent account enumeration.
-- **OWASP Top 10 Hardened:** Strict Content Security Policy (CSP), HSTS, X-Frame-Options DENY, CSRF checks, and append-only audit logging.
-
----
-
-## Quick Start (Local Development)
-
-### 1. Install Dependencies
-```bash
+Install dependencies:
 npm install
-```
 
-### 2. Environment Setup
-Copy the sample environment file:
-```bash
+Create environment file:
 cp .env.example .env.local
-```
-*(When running locally without a cloud Supabase database, `STANDALONE_DEV_MODE=true` is enabled by default with realistic seed records).*
+Setup your environment (If you are running this locally without a Supabase DB then STANDALONE_DEV_MODE will be true by default and realistic records will be seeded):
 
-### 3. Run Automated Tests & RLS Verification
-```bash
+Run tests & RLS:
 npm test
-```
 
-### 4. Start Development Server
-```bash
+Start development server:
 npm run dev
-```
-Open **[http://localhost:3000](http://localhost:3000)** in your browser.
+Navigate to http://localhost:3000.
 
----
+## Testing Accounts ##
 
-## Default Test Accounts & Credentials
+| Role | Username | Password | MFA |
+|--- |--- |--- |--- |
+| Student | 2500040001 (aditya.verma@student.nitroazard.edu.in) | NitroStudent2025! | - |
+| Staff | KLU1042 (rajesh.kumar@faculty.nitroazard.edu.in) | NitroFaculty2025! | 123456 |
+| Admin | KLU_ADMIN_01 (admin.academics@nitroazard.edu.in) | NitroAdmin2025! | 123456 |
+| Parent | suresh.verma@parents.nitroazard.edu.in | NitroParent2025! | - |
 
-| Role | Login Identifier | Demo Password | MFA Code |
-| :--- | :--- | :--- | :--- |
-| **Student** | `2500040001` (or `aditya.verma@student.nitroazard.edu.in`) | `NitroStudent2025!` | *Not required* |
-| **Faculty** | `KLU1042` (or `rajesh.kumar@faculty.nitroazard.edu.in`) | `NitroFaculty2025!` | `123456` |
-| **Admin** | `KLU_ADMIN_01` (or `admin.academics@nitroazard.edu.in`) | `NitroAdmin2025!` | `123456` |
-| **Parent** | `suresh.verma@parents.nitroazard.edu.in` | `NitroParent2025!` | *Not required* |
+You can also use the quick login buttons on the login page.
 
-*(The login screen also provides one-click quick login buttons for all roles).*
+## Supabase DB Setup ######
+Make an account on Supabase.
 
----
+Run the migrations in the following order,
+supabase/migrations/20240101000000_schema.sql (Tables & Relationships)
+supabase/migrations/20240101000001_rls_policies.sql (RLS)
+supabase/seed.sql (Seed data with realistic data for an Indian Deemed University)
+Set your keys in .env.local
+NEXT_PUBLIC_SUPABASE_URL=https://.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+SUPABASE_SERVICE_ROLE_KEY=
+SESSION_SECRET=<32_char_cryptographic_secret>
 
-## Supabase Database Deployment
+## Vercel Setup ###
 
-1. Create a project in [Supabase](https://supabase.com).
-2. Execute the migrations in order:
-   - `supabase/migrations/20240101000000_schema.sql` (Tables & Relations)
-   - `supabase/migrations/20240101000001_rls_policies.sql` (Row Level Security)
-   - `supabase/seed.sql` (Realistic Indian deemed university seed dataset)
-3. Set your production keys in `.env.local`:
-   ```env
-   NEXT_PUBLIC_SUPABASE_URL=https://<your-project>.supabase.co
-   NEXT_PUBLIC_SUPABASE_ANON_KEY=<your-anon-key>
-   SUPABASE_SERVICE_ROLE_KEY=<your-service-role-key>
-   SESSION_SECRET=<32_char_cryptographic_secret>
-   ```
-
----
-
-## Vercel Deployment
-
-1. Push your repository to GitHub or GitLab.
-2. Import the project into [Vercel](https://vercel.com).
-3. In Project Settings > Environment Variables, populate all variables from `.env.example`.
-4. Deploy. Next.js App Router and Edge Middleware will build automatically.
+Push your code to GitHub/GitLab.
+Import your project onto Vercel.
+Go to Project Settings > Environment Variables and fill in all the variables from .env.example.
+Deploy. The Next.js App Router & Edge Middleware will be built for you.

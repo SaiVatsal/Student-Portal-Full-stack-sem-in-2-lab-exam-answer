@@ -1,5 +1,3 @@
--- Nitro Azard University ERP Core Database Schema
--- Standard deemed university credit-based academic model with L-T-P-S-C structure
 
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
